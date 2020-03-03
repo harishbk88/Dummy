@@ -2,7 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <title>汉语</title>
-    <script src='//cdn.freshmarketer.com/566334/1569887.js'></script>
+    <script src='//cdn.freshmarketer.com/566334/1569887.js'>
+      function initFreshChat() {
+    window.fcWidget.init({
+      token: "9f8bc7f1-4486-43c4-87f7-901c5c1fc087",
+      host: "https://wchat.freshchat.com"
+    });
+  }
+  function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+</script>
   </head>
   <body>
     <strong> <a href="https://www.happyfox.com/live-chat/">The app brewery</a></strong>
@@ -15,14 +23,7 @@
       <li>j</li>
 
     </ul>
-<script>
-  function initFreshChat() {
-    window.fcWidget.init({
-      token: "9f8bc7f1-4486-43c4-87f7-901c5c1fc087",
-      host: "https://wchat.freshchat.com"
-    });
-  }
-  function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
-</script>
+
+  
   </body>
 </html>
