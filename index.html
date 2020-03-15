@@ -25,6 +25,8 @@ if(exps.length){
 
 $(exps).each(function(i,obj){
 
+if(obj.id === "4656515453544A425A5A5C58455C4C5E5A585959595D"){   ==> //**obj.id is Hash ID of your experiment**//
+
 if(obj.type == 1 || obj.type == 4){
 
 gtag('event', 'zargetdimension', {'zarget': 'Zarget' + obj['experimentName'] +' : ' + obj['appliedVariationName']});
@@ -35,6 +37,8 @@ gtag('event', 'zargetdimension', {'zarget': 'Zarget' + obj['experimentName']});
 
 }
 
+}
+
 });
 
 }
@@ -42,13 +46,7 @@ gtag('event', 'zargetdimension', {'zarget': 'Zarget' + obj['experimentName']});
 });
 
 </script>
-
-
-
-
-
-
-    <title>Welcome</title>
+ <title>Welcome</title>
   </head>
   <body>
     <script>
