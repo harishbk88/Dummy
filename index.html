@@ -1,86 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-     <script src='//cdn.freshmarketer.com/570515/1576662.js'></script>
-    <script src="https://www.googletagmanager.com/gtag/js?id=UA-65844234-1"></script>
-    <script>
-
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){dataLayer.push(arguments);}
-
-gtag('js', new Date());
-
-gtag('config','UA-65844234-1', {
-
-'custom_map': {'dimension1': 'zarget'}
-
-});
-
-$( document ).ready(function() {
-
-var exps = window.zargetAPI?window.zargetAPI.getAllRunningExperiments() : [];
-
-if(exps.length){
-
-$(exps).each(function(i,obj){
-
-if(obj.id === "4656515453544A425A5A5C58455C4C5E5A585959595D"){   ==> //**obj.id is Hash ID of your experiment**//
-
-if(obj.type == 1 || obj.type == 4){
-
-gtag('event', 'zargetdimension', {'zarget': 'Zarget' + obj['experimentName'] +' : ' + obj['appliedVariationName']});
-
-}else{
-
-gtag('event', 'zargetdimension', {'zarget': 'Zarget' + obj['experimentName']});
-
-}
-
-}
-
-});
-
-}
-
-});
-
-</script>
- <title>Welcome</title>
-  </head>
-  <body>
-    <script>
-  function initFreshChat() {
-    window.fcWidget.init({
-      token: "9f8bc7f1-4486-43c4-87f7-901c5c1fc087",
-      host: "https://wchat.freshchat.com"
-    });
-  }
-  function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
-</script>
-    <strong> <a href="https://www.happyfox.com/live-chat/">The app brewery</a></strong>
-    
-      <li> hi</li>
-      <li>j</li>
-    </ol>
-    <ul>
-      <li> hi</li>
-      <li>j</li>
-
-    </ul>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Simple HTML Form</title>
+<title>Page Title</title>
 </head>
 <body>
-    <form action="https://www.tutorialrepublic.com/" method="post">
-        <label>Username: <input type="text" name="username"></label>
-        <label>Password: <input type="password" name="userpass"></label>
-        <input type="submit" value="Submit">
-    </form>
+<!--Start of HappyFox Live Chat Script-->
+<script>
+  window.HFCHAT_CONFIG = {
+    EMBED_TOKEN: '8d7aaac0-3151-11ea-87f5-7d02d4c3dc61',
+    ASSETS_URL: 'https://widget.happyfoxchat.com/v2/visitor'
+  };
+  (function () {
+    var scriptTag = document.createElement('script')
+    scriptTag.type = 'text/javascript'
+    scriptTag.async = true
+    scriptTag.src = window.HFCHAT_CONFIG.ASSETS_URL + '/js/widget-loader.js'
+
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(scriptTag, s)
+  })()
+</script>
+<!--End of HappyFox Live Chat Script-->
+<!-- Start of HappyFox Live Chat Customisation Script -->
+<script>
+  window.HFCHAT_CONFIG.onload = function () {
+    window.HappyFoxChat = this
+    function forgetVisitor (callback) {
+      callback || (callback = function () {})
+      HappyFoxChat.unsetVisitor(function (err) {
+        if (err) {
+          console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
+          callback(err)
+          return
+        }
+        callback()
+      })
+    }
+    /**
+     * On each page load if visitor state is "passive"
+     * (i.e. if not chatting) then forget the visitor
+     */
+    HappyFoxChat.getVisitorState(function (err, visitorState) {
+      if (err) {
+        console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
+        return
+      }
+      if (visitorState === 'passive') {
+        forgetVisitor()
+      }
+    })
+    /**
+     * On each end chat event, forget the visitor
+     * NOTE: If agent ends the chat after visitor closed
+     * all his widget browser tabs then forget visitor will
+     * not be invoked
+     */
+    HappyFoxChat.on('end:chat', function () {
+      forgetVisitor()
+    })
+  }
+</script>
+<!-- End of HappyFox Live Chat Customisation Script -->
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
 </body>
-</html>                            
-  
-  </body>
 </html>
