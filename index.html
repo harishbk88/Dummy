@@ -28,35 +28,26 @@
     function forgetVisitor (callback) {
       callback || (callback = function () {})
       HappyFoxChat.unsetVisitor(function (err) {
-        if (err) {
-          console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
-          callback(err)
-          return
-        }
-        callback()
+      if (err) {
+        console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
+        callback(err)
+        return
+      }
+      callback()
       })
     }
     /**
-     * On each page load if visitor state is "passive"
-     * (i.e. if not chatting) then forget the visitor
-     */
+    * On each page load check the visitor state, if
+    * visitor state is "passive" then forget the visitor
+    */
     HappyFoxChat.getVisitorState(function (err, visitorState) {
       if (err) {
-        console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
-        return
+      console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
+      return
       }
       if (visitorState === 'passive') {
-        forgetVisitor()
-      }
-    })
-    /**
-     * On each end chat event, forget the visitor
-     * NOTE: If agent ends the chat after visitor closed
-     * all his widget browser tabs then forget visitor will
-     * not be invoked
-     */
-    HappyFoxChat.on('end:chat', function () {
       forgetVisitor()
+      }
     })
   }
 </script>
