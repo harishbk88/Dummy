@@ -1,0 +1,72 @@
+
+Result Size: 705 x 639
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<!--Start of HappyFox Live Chat Script-->
+<script>
+  window.HFCHAT_CONFIG = {
+    EMBED_TOKEN: '8d7aaac0-3151-11ea-87f5-7d02d4c3dc61',
+    ASSETS_URL: 'https://widget.happyfoxchat.com/v2/visitor'
+  };
+  (function () {
+    var scriptTag = document.createElement('script')
+    scriptTag.type = 'text/javascript'
+    scriptTag.async = true
+    scriptTag.src = window.HFCHAT_CONFIG.ASSETS_URL + '/js/widget-loader.js'
+
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(scriptTag, s)
+  })()
+</script>
+<!--End of HappyFox Live Chat Script-->
+<!-- Start of HappyFox Live Chat Customisation Script -->
+<script>
+  window.HFCHAT_CONFIG.onload = function () {
+    window.HappyFoxChat = this
+    function forgetVisitor (callback) {
+      callback || (callback = function () {})
+      HappyFoxChat.unsetVisitor(function (err) {
+        if (err) {
+          console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
+          callback(err)
+          return
+        }
+        callback()
+      })
+    }
+    /**
+     * On each page load if visitor state is "passive"
+     * (i.e. if not chatting) then forget the visitor
+     */
+    HappyFoxChat.getVisitorState(function (err, visitorState) {
+      if (err) {
+        console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
+        return
+      }
+      if (visitorState === 'passive') {
+        forgetVisitor()
+      }
+    })
+    /**
+     * On each end chat event, forget the visitor
+     * NOTE: If agent ends the chat after visitor closed
+     * all his widget browser tabs then forget visitor will
+     * not be invoked
+     */
+    HappyFoxChat.on('end:chat', function () {
+      forgetVisitor()
+    })
+  }
+</script>
+<!-- End of HappyFox Live Chat Customisation Script -->
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
