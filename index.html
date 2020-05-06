@@ -29,8 +29,7 @@
       callback || (callback = function () { })
       HappyFoxChat.unsetVisitor(function (err) {
         if (err) {
-          console.error('HappyFoxChat: Failed to forget the visitor. 
-Error:', err)
+          console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
           callback(err)
           return
         }
