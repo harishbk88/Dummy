@@ -25,15 +25,16 @@
 <script>
   window.HFCHAT_CONFIG.onload = function () {
     window.HappyFoxChat = this
-    function forgetVisitor (callback) {
-      callback || (callback = function () {})
+    function forgetVisitor(callback) {
+      callback || (callback = function () { })
       HappyFoxChat.unsetVisitor(function (err) {
-      if (err) {
-        console.error('HappyFoxChat: Failed to forget the visitor. Error:', err)
-        callback(err)
-        return
-      }
-      callback()
+        if (err) {
+          console.error('HappyFoxChat: Failed to forget the visitor. 
+Error:', err)
+          callback(err)
+          return
+        }
+        callback()
       })
     }
     /**
@@ -42,17 +43,16 @@
     */
     HappyFoxChat.getVisitorState(function (err, visitorState) {
       if (err) {
-      console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
-      return
+        console.error('HappyFoxChat: Failed to get visitor state. Error:', err)
+        return
       }
       if (visitorState === 'passive') {
-      forgetVisitor()
+        forgetVisitor()
       }
     })
   }
 </script>
 <!-- End of HappyFox Live Chat Customisation Script -->
-
 <h1>This is a Heading</h1>
 <p>This is a paragraph.</p>
 
